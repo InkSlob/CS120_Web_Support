@@ -1,0 +1,102 @@
+<html>
+  <title>CS121 Quiz Summary</title>
+  
+<p>Links to related pages</p>
+    <nav>
+    <ul>
+      <li><a href="http://www.cs.odu.edu/~jwri/A2presentation.html" target="blank">A3 Presentation Schedule</a></li>
+      <li><a href="http://www.cs.odu.edu/~jwri/121RecSchedule.html">Recitation Schedule</a></li>
+      <li><a href="http://www.cs.odu.edu/~jwri/rec2.html">Recitation Quizzes</a></li>
+      <li><a href="https://intro.cs.odu.edu">Course Portal</a></li>
+	  <li><a href="http://www.cs.odu.edu/~jwri/googleChart2.html">Quiz Summary</a></li>
+	  <li><a href="http://www.cs.odu.edu/~jwri/A2_Ind_chart.html">A2 IND Summary</a></li>
+	  <li><a href="http://www.cs.odu.edu/~jwri/Exam1Chart.html">Exam 1 Statistics</a></li>
+    </ul>
+  </nav>
+  
+  <h1>Summary of student performance for CS 121 Lecture Quizzes.</h1>
+  <h3>This is for CRN 22925 (9:30 Tuesday & Thursday Lecture) ONLY</h3>
+  
+  <p> To date five quizzes have been given.  Dr. Ayman will notify students during lecture of upcoming quizzes.
+      This webpage was last updated: 3/2/2016 @ 1400</p>
+  
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+	// Load Charts and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+	// Draw the average quiz line chart when Charts is loaded.
+    google.charts.setOnLoadCallback(drawAvgChart);
+
+    // Draw the column chart for quiz attendance when Charts is loaded.
+    google.charts.setOnLoadCallback(drawAttendanceChart);
+	
+    // Callback that draws the line chart for quiz average.
+	function drawAvgChart() {
+		var data = google.visualization.arrayToDataTable([
+          ['Quiz', 'Average', 'Median'],
+          ['1',  	7.99,      	9.00],
+          ['2', 	6.84,      	8.00],
+          ['3',  	8.46,      	9.00],
+          ['4',  	8.63,      	9.00],
+		  [5,		8.35,		9.00 ]			
+        ]);
+		
+	// Set options for Quiz Avg Line Chart.
+	var options = {
+          title: 'Lecture Quiz Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+    };
+	
+    // Instantiate and draw the chart for Line Chart.
+    var chart = new google.visualization.LineChart(document.getElementById('AVG_chart'));
+    chart.draw(data, options);
+    }
+	
+	// Callback that draws the column chart for quiz submittals.
+	function drawAttendanceChart() {
+	
+	  // Create the data table for quiz submits column chart
+      var data = new google.visualization.arrayToDataTable([
+          ['Quiz', 'Submissions'],
+          ["Quiz 1", 	64],
+          ["Quiz 2", 	60],
+          ["Quiz 3", 	65],
+          ["Quiz 4", 	55],
+          ['Quiz 5', 	61]
+        ]);
+    
+	
+	
+	// Set options for Quiz Avg Line Chart.		
+    var options = {
+        title: "Total Submissions by Quiz",
+        bar: {groupWidth: "50%"},
+        legend: { position: "none" },
+      };
+	  
+	// Instantiate and draw the chart for Submittals
+	var chart = new google.visualization.ColumnChart(document.getElementById('submittals_chart'));
+    // Convert the Classic options to Material options.
+     chart.draw(data, options);
+    }
+</script>
+  </head>
+  <body>
+    <!--Table and divs that hold the pie charts-->
+    <table class="columns">
+      <tr>
+        <td><div id="AVG_chart" style="border: 1px solid #ccc"></div></td>
+	  </tr>
+	  <tr>
+        <td><div id="submittals_chart" style="width: 700px; height: 500px;"></div></td>
+      </tr>
+    </table>
+  </body>
+</html>
+
+
+
